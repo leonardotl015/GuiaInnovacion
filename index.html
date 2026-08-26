@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De la chispa a la idea de negocio · Guía interactiva de Innovación</title>
+<meta name="description" content="Guía interactiva que resume la clase de Oportunidades de Innovación: de la idea a la innovación, paso a paso.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Barra de progreso móvil -->
+<div class="mobile-progress" aria-hidden="true"><div class="mobile-progress-fill" id="mobileProgressFill"></div></div>
+
+<!-- Botón de menú móvil -->
+<button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Abrir mapa del recorrido" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Riel de progreso / navegación (desktop) + panel móvil -->
+<nav class="rail" id="rail" aria-label="Mapa del recorrido">
+  <div class="rail-track">
+    <div class="rail-fill" id="railFill"></div>
+  </div>
+  <ol class="rail-nodes" id="railNodes"><!-- generado por JS --></ol>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <header class="hero" id="inicio">
+    <div class="hero-bg" aria-hidden="true">
+      <svg class="spark-svg" viewBox="0 0 400 400" aria-hidden="true">
+        <g class="spark-rays">
+          <line x1="200" y1="40" x2="200" y2="90"/>
+          <line x1="200" y1="310" x2="200" y2="360"/>
+          <line x1="40" y1="200" x2="90" y2="200"/>
+          <line x1="310" y1="200" x2="360" y2="200"/>
+          <line x1="88" y1="88" x2="122" y2="122"/>
+          <line x1="278" y1="278" x2="312" y2="312"/>
+          <line x1="88" y1="312" x2="122" y2="278"/>
+          <line x1="278" y1="122" x2="312" y2="88"/>
+        </g>
+        <circle class="spark-core" cx="200" cy="200" r="70"/>
+        <circle class="spark-core-glow" cx="200" cy="200" r="70"/>
+      </svg>
+    </div>
+    <p class="eyebrow">Guía interactiva &middot; Clase de Innovación &middot; Oscar Leonardo Torres Luis</p>
+    <h1 class="hero-title">De una chispa,<br><em>a una idea de negocio.</em></h1>
+    <p class="hero-sub">Un recorrido por la ruta del aprendiazaje que se fue recorriendo por todo el cuaatrimestre: cómo nace una idea, cómo se convierte en negocio, cómo se evalúa, se elige y finalmente se transforma en innovación.</p>
+    <a href="#idea" class="btn-spark" data-scroll>
+      <span>Empezar el recorrido</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="hero-map">
+      <span class="hero-map-label">El mapa completo:</span>
+      <div class="hero-chips" id="heroChips"><!-- generado por JS --></div>
+    </div>
+  </header>
+
+  <!-- 2.1 IDEA -->
+  <section class="section" id="idea" data-title="Qué es una idea" data-short="La idea">
+    <div class="section-head reveal">
+      <span class="section-kicker">2.1</span>
+      <h2>¿Qué es <em>una idea</em>?</h2>
+      <p class="section-lede">Una representación mental que nace de la imaginación, la experiencia, el conocimiento o la observación: un pensamiento que abre la puerta a una posibilidad, una mejora o una solución.</p>
+    </div>
+
+    <div class="perspective-row reveal">
+      <div class="perspective">
+        <span class="perspective-tag">Filosofía</span>
+        <p>Una idea es una representación mental de la realidad.</p>
+      </div>
+      <div class="perspective">
+        <span class="perspective-tag">Psicología</span>
+        <p>Es el resultado de procesos de percepción, memoria y creatividad.</p>
+      </div>
+      <div class="perspective">
+        <span class="perspective-tag">Negocios</span>
+        <p>Es una oportunidad para generar valor resolviendo un problema.</p>
+      </div>
+    </div>
+
+    <h3 class="subhead reveal">7 rasgos de una idea con futuro <span class="hint">— toca cada tarjeta</span></h3>
+    <div class="flip-grid reveal" data-flip-group>
+      <!-- flip cards generadas por JS desde data en script.js -->
+    </div>
+
+    <div class="two-col reveal">
+      <div>
+        <h3 class="subhead">¿De dónde nacen las ideas?</h3>
+        <div class="chip-list" id="ideaSources"></div>
+      </div>
+      <div>
+        <h3 class="subhead">Lo que frena la creatividad</h3>
+        <div class="chip-list muted" id="ideaObstacles"></div>
+      </div>
+    </div>
+
+    <div class="examples-block reveal">
+      <h3 class="subhead">De una idea simple, a una gran empresa</h3>
+      <div class="example-row" id="ideaExamples"></div>
+    </div>
+  </section>
+
+  <!-- 2.2 IDEA DE NEGOCIO -->
+  <section class="section alt" id="negocio" data-title="Idea de negocio" data-short="Idea de negocio">
+    <div class="section-head reveal">
+      <span class="section-kicker">2.2</span>
+      <h2>De la idea a la <em>idea de negocio</em></h2>
+      <p class="section-lede">Una propuesta estructurada que busca satisfacer una necesidad o resolver un problema mediante un producto, servicio o modelo que genere valor para el cliente y rentabilidad para quien emprende.</p>
+    </div>
+
+    <div class="questions-row reveal">
+      <div class="q-card"><span class="q-num">1</span><p>¿Qué necesidad se va a satisfacer?</p></div>
+      <div class="q-card"><span class="q-num">2</span><p>¿Cómo se va a satisfacer?</p></div>
+      <div class="q-card"><span class="q-num">3</span><p>¿Quién estará dispuesto a pagar por ello?</p></div>
+    </div>
+
+    <blockquote class="quote reveal">Toda innovación surge de una idea creativa, <span>pero no toda idea creativa se convierte en innovación.</span></blockquote>
+
+    <div class="compare reveal">
+      <div class="compare-card">
+        <h4>Idea de negocio</h4>
+        <p>Es el concepto: la propuesta inicial que busca resolver una necesidad o problema.</p>
+      </div>
+      <div class="compare-vs">vs</div>
+      <div class="compare-card highlight">
+        <h4>Oportunidad de negocio</h4>
+        <p>Es la posibilidad real de éxito: convertir esa idea en una actividad rentable gracias a las condiciones del mercado.</p>
+      </div>
+    </div>
+
+    <h3 class="subhead reveal">Los 5 componentes de toda idea de negocio</h3>
+    <div class="card-grid reveal" id="negocioComponents"></div>
+
+    <h3 class="subhead reveal">¿Cómo saber si es una <em>buena</em> idea de negocio?</h3>
+    <div class="pill-grid reveal" id="negocioChars"></div>
+  </section>
+
+  <!-- 2.3 FUENTES -->
+  <section class="section" id="fuentes" data-title="Fuentes de ideas" data-short="Fuentes">
+    <div class="section-head reveal">
+      <span class="section-kicker">2.3</span>
+      <h2>¿Dónde buscar <em>ideas de negocio</em>?</h2>
+      <p class="section-lede">Las ideas no aparecen por casualidad: surgen de la observación, la creatividad y el análisis del entorno. Existen dos grandes canales para encontrarlas.</p>
+    </div>
+
+    <div class="tabs reveal" data-tabs="fuentes">
+      <div class="tab-buttons">
+        <button class="tab-btn is-active" data-tab-target="fuentes-internas">Fuentes internas</button>
+        <button class="tab-btn" data-tab-target="fuentes-externas">Fuentes externas</button>
+      </div>
+      <div class="tab-panel is-active" data-tab-panel="fuentes-internas">
+        <p class="tab-intro">Nacen de tu propia experiencia, conocimiento y gustos: recursos que ya tienes.</p>
+        <div class="card-grid" id="fuentesInternas"></div>
+      </div>
+      <div class="tab-panel" data-tab-panel="fuentes-externas">
+        <p class="tab-intro">Vienen del entorno: personas y fuerzas que te muestran lo que el mercado necesita.</p>
+        <div class="card-grid" id="fuentesExternas"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.4 IDENTIFICACIÓN -->
+  <section class="section alt" id="identificacion" data-title="Identificación" data-short="Identificación">
+    <div class="section-head reveal">
+      <span class="section-kicker">2.4</span>
+      <h2>Cómo <em>identificar</em> la idea correcta</h2>
+      <p class="section-lede">Tener una idea no basta: hay que descubrir, dentro de lo cotidiano, una oportunidad real. Este es el camino para encontrarla.</p>
+    </div>
+
+    <ol class="timeline reveal" id="identificacionTimeline"></ol>
+
+    <h3 class="subhead reveal">5 preguntas antes de seguir adelante</h3>
+    <div class="accordion reveal" id="identificacionQuestions"></div>
+
+    <h3 class="subhead reveal">Señales de una buena idea</h3>
+    <div class="pill-grid reveal" id="identificacionChars"></div>
+  </section>
+
+  <!-- 2.5 EVALUACIÓN -->
+  <section class="section" id="evaluacion" data-title="Evaluación" data-short="Evaluación">
+    <div class="section-head reveal">
+      <span class="section-kicker">2.5</span>
+      <h2>Poner la idea a <em>prueba</em></h2>
+      <p class="section-lede">Antes de invertir tiempo y dinero, toda idea debe pasar por cuatro filtros. Explora cada uno.</p>
+    </div>
+
+    <div class="tabs reveal" data-tabs="evaluacion">
+      <div class="tab-buttons">
+        <button class="tab-btn is-active" data-tab-target="ev-mercado">Mercado</button>
+        <button class="tab-btn" data-tab-target="ev-tecnica">Técnica</button>
+        <button class="tab-btn" data-tab-target="ev-financiera">Financiera</button>
+        <button class="tab-btn" data-tab-target="ev-legal">Legal</button>
+      </div>
+      <div class="tab-panel is-active" data-tab-panel="ev-mercado">
+        <div class="card-grid" id="evMercado"></div>
+      </div>
+      <div class="tab-panel" data-tab-panel="ev-tecnica">
+        <div class="card-grid" id="evTecnica"></div>
+      </div>
+      <div class="tab-panel" data-tab-panel="ev-financiera">
+        <div class="card-grid" id="evFinanciera"></div>
+      </div>
+      <div class="tab-panel" data-tab-panel="ev-legal">
+        <div class="card-grid" id="evLegal"></div>
+      </div>
+    </div>
+
+    <h3 class="subhead reveal">Riesgos que hay que vigilar</h3>
+    <div class="risk-row reveal" id="evRiesgos"></div>
+  </section>
+
+  <!-- 2.6 HERRAMIENTAS -->
+  <section class="section alt" id="herramientas" data-title="Herramientas" data-short="Herramientas">
+    <div class="section-head reveal">
+      <span class="section-kicker">2.6</span>
+      <h2>Cajas de herramientas para <em>decidir</em></h2>
+      <p class="section-lede">Cuatro metodologías que ayudan a pasar de la intuición a una decisión bien fundamentada.</p>
+    </div>
+
+    <div class="tabs herramientas-tabs reveal" data-tabs="herramientas">
+      <div class="tab-buttons">
+        <button class="tab-btn is-active" data-tab-target="h-foda">FODA</button>
+        <button class="tab-btn" data-tab-target="h-canvas">Business Model Canvas</button>
+        <button class="tab-btn" data-tab-target="h-design">Design Thinking</button>
+        <button class="tab-btn" data-tab-target="h-scamper">SCAMPER</button>
+      </div>
+
+      <div class="tab-panel is-active" data-tab-panel="h-foda">
+        <p class="tab-intro">Un diagnóstico rápido de lo interno y lo externo de una idea de negocio. Toca cada letra.</p>
+        <div class="foda-grid" id="fodaGrid"></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="h-canvas">
+        <p class="tab-intro">Los 9 bloques que resumen un modelo de negocio completo en una sola página.</p>
+        <div class="canvas-grid" id="canvasGrid"></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="h-design">
+        <p class="tab-intro">Una metodología que pone a la persona usuaria en el centro del diseño de la solución.</p>
+        <div class="stepper" id="designStepper"></div>
+      </div>
+
+      <div class="tab-panel" data-tab-panel="h-scamper">
+        <p class="tab-intro">Siete preguntas para transformar algo que ya existe en algo nuevo.</p>
+        <div class="accordion" id="scamperAccordion"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.7 SELECCIÓN -->
+  <section class="section" id="seleccion" data-title="Selección final" data-short="Selección">
+    <div class="section-head reveal">
+      <span class="section-kicker">2.7</span>
+      <h2>Elegir <em>la idea final</em></h2>
+      <p class="section-lede">Con varias alternativas ya evaluadas, llega el momento de decidir cuál merece la inversión de tiempo y recursos.</p>
+    </div>
+
+    <h3 class="subhead reveal">6 criterios para decidir con cabeza fría</h3>
+    <div class="card-grid reveal" id="seleccionCriterios"></div>
+
+    <div class="two-col reveal">
+      <div>
+        <h3 class="subhead">Esta etapa busca...</h3>
+        <div class="chip-list" id="seleccionObjetivos"></div>
+      </div>
+      <div>
+        <h3 class="subhead">Errores comunes al elegir</h3>
+        <div class="chip-list muted" id="seleccionErrores"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.8 PROCESO DE INNOVACIÓN -->
+  <section class="section alt" id="proceso" data-title="Proceso de innovación" data-short="Innovación">
+    <div class="section-head reveal">
+      <span class="section-kicker">2.8</span>
+      <h2>El <em>proceso de innovación</em> completo</h2>
+      <p class="section-lede">La innovación no es un golpe de suerte: es un proceso de 9 etapas que convierte una idea en una solución real, aceptada por quienes la usan.</p>
+    </div>
+
+    <ol class="timeline vertical reveal" id="procesoTimeline"></ol>
+
+    <div class="closing-card reveal">
+      <p class="closing-kicker">Fin del recorrido- Conclusion</p>
+      <h3>Conclusion Perosonal</h3>
+      <p>Durante este cuatrimestre aprendí que la creatividad y la innovación son habilidades que puedo desarrollar y aplicar tanto en mi vida personal como profesional. Comprendí la importancia de cambiar mi forma de pensar, analizar los problemas desde diferentes perspectivas y no tener miedo a proponer nuevas ideas.
+        También aprendí sobre la comunicación, la motivación y cómo nuestros pensamientos y emociones pueden influir en nuestras decisiones. Además, entendí que una idea de negocio no solo debe ser creativa, sino que debe resolver una necesidad real y ser evaluada para saber si es viable.
+
+En lo personal, considero que estos temas me ayudaron a tener una mentalidad más abierta y a confiar más en mis capacidades. Me quedo con el aprendizaje de que tener una idea es solo el comienzo; lo importante es trabajar en ella, aprender de los errores y convertirla en algo que pueda generar valor.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Resumen interactivo de la clase <strong>Oportunidades de Innovación</strong> — Oscar Leonardo Torres Luis.</p>
+  <p class="muted">Guía De Innovación · hecha para repasar.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
